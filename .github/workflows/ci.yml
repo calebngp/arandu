@@ -2,21 +2,24 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
 
 jobs:
-  test:
+  pruebas:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-      - name: Set up Python
-        run: uv python install 3.12
-      - name: Install dependencies
-        run: uv sync --all-groups
-      - name: Revisar el estilo
+      - name: Traer el codigo del repositorio
+        uses: actions/checkout@v7
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v9.0.0
+
+      - name: Instalar el proyecto y sus dependencias
+        run: uv sync --locked
+
+      - name: Revisar el estilo con ruff
         run: uv run ruff check
+
       - name: Correr las pruebas
         run: uv run pytest

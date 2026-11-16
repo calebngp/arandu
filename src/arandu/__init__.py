@@ -1,1 +1,2 @@
-"""Arandu: reglas de inscripción y cupo."""
+def main() -> None:
+    print("Hello from arandu!")

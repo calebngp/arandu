@@ -1,6 +1,6 @@
 # Arandu
 
-Reglas de inscripción y cupo para comisiones.
+Taller I · Instituto Arandu. Repositorio del estudiante.
 
 ```bash
 uv sync
